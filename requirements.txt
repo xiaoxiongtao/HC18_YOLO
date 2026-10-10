@@ -1,0 +1,34 @@
+# ============================================================
+# 胎儿头围（HC18）检测项目依赖
+# Python 3.10+ 建议使用（已在 Python 3.14 上验证）
+# ============================================================
+
+# ---- 深度学习框架 ----
+# 注意：PyPI 上的 torch 默认是 CPU 版。如需 GPU 加速，请先到
+# https://pytorch.org/get-started/locally/ 安装匹配 CUDA 版本的 torch/torchvision，
+# 再执行 `pip install -r requirements.txt`。
+torch>=2.3.0
+torchvision>=0.18.0
+
+# ---- YOLO 框架（同时支持 YOLOv8 与 YOLO11）----
+ultralytics>=8.3.0
+
+# ---- 科学计算与数据处理 ----
+numpy>=1.26.0
+opencv-python>=4.9.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+PyYAML>=6.0.1
+tqdm>=4.66.0
+
+# ---- 可视化 ----
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# ---- 图像处理 ----
+Pillow>=10.2.0
+
+# ---- Jupyter（运行 notebooks/ 下的报告）----
+jupyter>=1.0.0
+notebook>=7.1.0
+ipykernel>=6.29.0

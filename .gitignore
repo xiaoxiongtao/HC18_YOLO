@@ -1,0 +1,48 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ===== 虚拟环境 / 依赖 =====
+.venv/
+venv/
+env/
+ENV/
+
+# ===== 环境变量 =====
+.env
+.env.*
+
+# ===== IDE / 编辑器 =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== 工具配置 =====
+.workbuddy/
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# ===== 模型权重（大文件） =====
+*.pt
+*.pth
+*.onnx
+*.engine
+*.torchscript
+weights/
+
+# ===== 数据集 / 训练产物 =====
+data/
+runs/
+超声胎儿头围检测/
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db
