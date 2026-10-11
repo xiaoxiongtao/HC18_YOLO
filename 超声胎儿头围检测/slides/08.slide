@@ -1,0 +1,62 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* A3 页眉 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 72, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', paddingLeft: 40, paddingRight: 40, justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>超声胎儿头围检测 · 教学课件</Text>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>第 2 章 · 方法与技术路线</Text>
+  </Box>
+  {/* B 标题块 */}
+  <Box style={{ position: 'absolute', top: 96, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+    <Box style={{ width: 8, height: 34, background: '#1E4FA8', borderRadius: 2 }} />
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>数据预处理：掩膜轮廓 → YOLO 边界框</Text>
+  </Box>
+  {/* C 内容区 */}
+  <Box style={{ position: 'absolute', top: 156, left: 40, width: 1200, flexDirection: 'row', gap: 24 }}>
+    {/* 左图组 60% */}
+    <Box style={{ width: 700, flexDirection: 'column', gap: 12 }}>
+      <Box style={{ flexDirection: 'row', gap: 16 }}>
+        <Box style={{ width: 342, flexDirection: 'column', alignItems: 'center' }}>
+          <Image src="assets/sample_image.png" style={{ width: 342, height: 231, objectFit: 'cover', borderRadius: 8, border: '1px solid #D6DCE5' }} />
+          <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 8 }}>① 原始超声图像（800×540 灰度）</Text>
+        </Box>
+        <Box style={{ width: 342, flexDirection: 'column', alignItems: 'center' }}>
+          <Image src="assets/sample_mask.png" style={{ width: 342, height: 231, objectFit: 'cover', borderRadius: 8, border: '1px solid #D6DCE5', background: '#000000' }} />
+          <Text style={{ fontSize: 15, color: '#4A5568', marginTop: 8 }}>② 二值掩膜（白色 = 椭圆轮廓线）</Text>
+        </Box>
+      </Box>
+      {/* 几何示意 */}
+      <Box style={{ background: '#F0F5FC', borderRadius: 10, border: '1px solid #D6DCE5', alignItems: 'center', paddingVertical: 8, height: 216 }}>
+        <svg width={660} height={170} viewBox="0 0 660 170">
+          <rect x="140" y="18" width="380" height="134" fill="none" stroke="#1E4FA8" strokeWidth="3" />
+          <ellipse cx="330" cy="85" rx="168" ry="52" fill="rgba(61,123,217,0.15)" stroke="#3D7BD9" strokeWidth="3" transform="rotate(-12 330 85)" />
+          <circle cx="330" cy="85" r="4" fill="#D9534F" />
+          <text x="340" y="72" fontSize="16" fill="#D9534F">拟合椭圆中心 (cx, cy)</text>
+          <text x="142" y="12" fontSize="16" fill="#1E4FA8">外接矩形 = 检测框 (x, y, w, h)</text>
+          <text x="470" y="150" fontSize="16" fill="#0E3F8C">半轴 a, b → 椭圆周长 = 头围</text>
+        </svg>
+        <Text style={{ fontSize: 15, color: '#8B97A8' }}>③ 几何换算：框用于训练，椭圆用于测量头围</Text>
+      </Box>
+    </Box>
+    {/* 右侧要点 */}
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 14 }}>
+      <Box style={{ background: '#F7F9FC', borderRadius: 10, padding: 16, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>处理流程</Text>
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.6, marginTop: 6 }}>findContours 提取轮廓 → boundingRect 得外接框 → fitEllipse 得中心 / 半轴 / 角度 → 灰度图复制 3 通道 → 按病人 8:2 划分。</Text>
+      </Box>
+      <Box style={{ background: '#F0F5FC', borderRadius: 10, padding: 16, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>椭圆周长（拉马努金二阶近似）</Text>
+        <Text style={{ fontSize: 20, color: '#1A2230', lineHeight: 1.7, marginTop: 8 }}>HC = π(a+b) · [1 + 3h / (10 + √(4−3h))]{'\n'}h = ((a−b)/(a+b))²</Text>
+        <Text style={{ fontSize: 15, color: '#8B97A8', marginTop: 4 }}>a、b 为椭圆半轴长，出自 prepare_data.py 源码</Text>
+      </Box>
+      <Box style={{ background: '#0E3F8C', borderRadius: 10, padding: 16 }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}>YOLO 标签示例</Text>
+        <Text style={{ fontSize: 19, color: '#FFFFFF', fontFamily: 'Consolas, monospace', marginTop: 8 }}>0 0.504375 0.412037{'\n'}    0.283750 0.331481</Text>
+        <Text style={{ fontSize: 15, color: '#FFFFFF', opacity: 0.75, marginTop: 6 }}>class x_center y_center width height（归一化）</Text>
+      </Box>
+    </Box>
+  </Box>
+  {/* D 页脚 */}
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>HC18 胎儿头围检测项目 · 肖雄涛</Text>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>08 / 19</Text>
+  </Box>
+</Slide>

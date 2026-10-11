@@ -1,0 +1,74 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* A3 页眉 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 72, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', paddingLeft: 40, paddingRight: 40, justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>超声胎儿头围检测 · 教学课件</Text>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>第 2 章 · 方法与技术路线</Text>
+  </Box>
+  {/* B 标题块 */}
+  <Box style={{ position: 'absolute', top: 96, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+    <Box style={{ width: 8, height: 34, background: '#1E4FA8', borderRadius: 2 }} />
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>技术路线：从掩膜标注到毫米级头围</Text>
+  </Box>
+  {/* C 内容区：五步流程 */}
+  <Box style={{ position: 'absolute', top: 170, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+    <Box style={{ width: 200, flexDirection: 'column', alignItems: 'center' }}>
+      <Box style={{ width: 200, height: 96, background: '#1E4FA8', borderRadius: 12, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF' }}>① 掩膜标注</Text>
+      </Box>
+      <Text style={{ fontSize: 17, color: '#4A5568', textAlign: 'center', lineHeight: 1.5, marginTop: 12 }}>读取二值掩膜{'\n'}白色像素为轮廓线</Text>
+    </Box>
+    <Text style={{ fontSize: 34, color: '#3D7BD9', fontWeight: 'bold' }}>→</Text>
+    <Box style={{ width: 200, flexDirection: 'column', alignItems: 'center' }}>
+      <Box style={{ width: 200, height: 96, background: '#1E4FA8', borderRadius: 12, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF' }}>② 椭圆拟合</Text>
+      </Box>
+      <Text style={{ fontSize: 17, color: '#4A5568', textAlign: 'center', lineHeight: 1.5, marginTop: 12 }}>cv2.fitEllipse{'\n'}得中心 / 半轴 / 角度</Text>
+    </Box>
+    <Text style={{ fontSize: 34, color: '#3D7BD9', fontWeight: 'bold' }}>→</Text>
+    <Box style={{ width: 200, flexDirection: 'column', alignItems: 'center' }}>
+      <Box style={{ width: 200, height: 96, background: '#1E4FA8', borderRadius: 12, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF' }}>③ YOLO 标签</Text>
+      </Box>
+      <Text style={{ fontSize: 17, color: '#4A5568', textAlign: 'center', lineHeight: 1.5, marginTop: 12 }}>外接矩形归一化{'\n'}class xc yc w h</Text>
+    </Box>
+    <Text style={{ fontSize: 34, color: '#3D7BD9', fontWeight: 'bold' }}>→</Text>
+    <Box style={{ width: 200, flexDirection: 'column', alignItems: 'center' }}>
+      <Box style={{ width: 200, height: 96, background: '#1E4FA8', borderRadius: 12, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF' }}>④ 训练对比</Text>
+      </Box>
+      <Text style={{ fontSize: 17, color: '#4A5568', textAlign: 'center', lineHeight: 1.5, marginTop: 12 }}>同一超参数训练{'\n'}YOLOv8 / YOLO11</Text>
+    </Box>
+    <Text style={{ fontSize: 34, color: '#3D7BD9', fontWeight: 'bold' }}>→</Text>
+    <Box style={{ width: 200, flexDirection: 'column', alignItems: 'center' }}>
+      <Box style={{ width: 200, height: 96, background: '#0E3F8C', borderRadius: 12, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FFFFFF' }}>⑤ 头围估计</Text>
+      </Box>
+      <Text style={{ fontSize: 17, color: '#4A5568', textAlign: 'center', lineHeight: 1.5, marginTop: 12 }}>椭圆周长 × 像素尺寸{'\n'}换算为毫米</Text>
+    </Box>
+  </Box>
+  {/* 代码模块说明 */}
+  <Box style={{ position: 'absolute', top: 384, left: 40, width: 1200, flexDirection: 'row', gap: 20 }}>
+    <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 10, padding: 20, border: '1px solid #D6DCE5' }}>
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>prepare_data.py</Text>
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 8 }}>掩膜 → YOLO 标注转换、灰度图复制为 3 通道、按病人 8:2 划分训练 / 验证集。</Text>
+    </Box>
+    <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 10, padding: 20, border: '1px solid #D6DCE5' }}>
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>train.py</Text>
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 8 }}>封装 Ultralytics YOLO 训练接口，两个模型共享同一套超参数与数据。</Text>
+    </Box>
+    <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 10, padding: 20, border: '1px solid #D6DCE5' }}>
+      <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>compare.py</Text>
+      <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 8 }}>统一评估：检测指标 + 头围误差（MAD / DSC / 相关性）+ 对比图输出。</Text>
+    </Box>
+  </Box>
+  {/* 输出物条 */}
+  <Box style={{ position: 'absolute', top: 580, left: 40, width: 1200, height: 62, background: '#E8EFF8', borderRadius: 10, flexDirection: 'row', alignItems: 'center', paddingLeft: 24, gap: 16 }}>
+    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#0E3F8C' }}>关键产物：</Text>
+    <Text style={{ fontSize: 19, color: '#1A2230' }}>data/yolo/（图像 + 标签）· dataset.yaml（训练配置）· hc_ground_truth.csv（头围真值）· runs/comparison/（指标与逐图预测）</Text>
+  </Box>
+  {/* D 页脚 */}
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>HC18 胎儿头围检测项目 · 肖雄涛</Text>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>07 / 19</Text>
+  </Box>
+</Slide>

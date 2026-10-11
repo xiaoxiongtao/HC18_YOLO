@@ -1,0 +1,38 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* 顶部深蓝条 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 14, background: '#0E3F8C' }} />
+  {/* 巨型章节号 */}
+  <Text style={{ position: 'absolute', left: 56, top: 60, fontSize: 240, fontWeight: 'bold', color: '#E8EFF8' }}>03</Text>
+  {/* 章节标题 */}
+  <Box style={{ position: 'absolute', left: 64, top: 280, width: 660 }}>
+    <Text style={{ fontSize: 20, color: '#3D7BD9', letterSpacing: 4 }}>PART 03</Text>
+    <Text style={{ fontSize: 52, fontWeight: 'bold', color: '#0E3F8C', marginTop: 12 }}>实验与结果分析</Text>
+    <Box style={{ width: 90, height: 6, background: '#1E4FA8', borderRadius: 3, marginTop: 22 }} />
+    <Box style={{ marginTop: 28, gap: 16 }}>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+        <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#1E4FA8' }} />
+        <Text style={{ fontSize: 22, color: '#1A2230' }}>训练过程：损失收敛与精度爬升</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+        <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#1E4FA8' }} />
+        <Text style={{ fontSize: 22, color: '#1A2230' }}>性能对比：mAP、参数量与推理速度</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+        <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#1E4FA8' }} />
+        <Text style={{ fontSize: 22, color: '#1A2230' }}>头围精度：MAD 2.0–2.4 mm，r ≈ 0.999</Text>
+      </Box>
+      <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+        <Box style={{ width: 10, height: 10, borderRadius: 5, background: '#1E4FA8' }} />
+        <Text style={{ fontSize: 22, color: '#1A2230' }}>结果可视化：验证集与困难样本表现</Text>
+      </Box>
+    </Box>
+  </Box>
+  {/* 右侧配图 */}
+  <Box style={{ position: 'absolute', right: 64, top: 200, width: 430, flexDirection: 'column', alignItems: 'center' }}>
+    <Image src="assets/comparison_plots.png" style={{ width: 430, height: 310, objectFit: 'contain', borderRadius: 10, border: '1px solid #D6DCE5', background: '#FFFFFF' }} />
+    <Text style={{ fontSize: 14, color: '#8B97A8', marginTop: 10 }}>两模型四项指标对比总览（compare.py 输出）</Text>
+  </Box>
+  <Box style={{ position: 'absolute', top: 668, right: 40 }}>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>12 / 19</Text>
+  </Box>
+</Slide>

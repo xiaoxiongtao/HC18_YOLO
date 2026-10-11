@@ -1,0 +1,88 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* A3 页眉 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 72, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', paddingLeft: 40, paddingRight: 40, justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>超声胎儿头围检测 · 教学课件</Text>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>第 2 章 · 方法与技术路线</Text>
+  </Box>
+  {/* B 标题块 */}
+  <Box style={{ position: 'absolute', top: 96, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+    <Box style={{ width: 8, height: 34, background: '#1E4FA8', borderRadius: 2 }} />
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>YOLO 网络架构：单阶段目标检测</Text>
+    <Text style={{ fontSize: 16, color: '#8B97A8', marginLeft: 12 }}>YOLOv8 / YOLO11 同源结构</Text>
+  </Box>
+  {/* C 内容区 */}
+  <Box style={{ position: 'absolute', top: 156, left: 40, width: 1200, flexDirection: 'column', alignItems: 'center' }}>
+    {/* 架构主图 */}
+    <Box style={{ background: '#F7F9FC', borderRadius: 12, border: '1px solid #D6DCE5', width: 1200, alignItems: 'center', paddingVertical: 18 }}>
+      <svg width={1140} height={250} viewBox="0 0 1140 250">
+        {/* 输入 */}
+        <rect x="10" y="70" width="150" height="110" rx="10" fill="#E8EFF8" stroke="#1E4FA8" strokeWidth="2" />
+        <text x="85" y="112" fontSize="18" fontWeight="bold" fill="#0E3F8C" textAnchor="middle">输入图像</text>
+        <text x="85" y="140" fontSize="15" fill="#4A5568" textAnchor="middle">640×640×3</text>
+        <line x1="160" y1="125" x2="205" y2="125" stroke="#3D7BD9" strokeWidth="3" markerEnd="none" />
+        <polygon points="205,119 217,125 205,131" fill="#3D7BD9" />
+        {/* Backbone */}
+        <rect x="220" y="40" width="250" height="170" rx="10" fill="#1E4FA8" />
+        <text x="345" y="76" fontSize="19" fontWeight="bold" fill="#FFFFFF" textAnchor="middle">Backbone 主干网络</text>
+        <rect x="240" y="92" width="210" height="30" rx="6" fill="rgba(255,255,255,0.16)" />
+        <text x="345" y="113" fontSize="15" fill="#FFFFFF" textAnchor="middle">Conv 下采样 × 5 级</text>
+        <rect x="240" y="130" width="210" height="30" rx="6" fill="rgba(255,255,255,0.16)" />
+        <text x="345" y="151" fontSize="15" fill="#FFFFFF" textAnchor="middle">C3k2 / C2f 特征块</text>
+        <rect x="240" y="168" width="210" height="28" rx="6" fill="rgba(255,255,255,0.16)" />
+        <text x="345" y="188" fontSize="15" fill="#FFFFFF" textAnchor="middle">SPPF 多尺度池化</text>
+        <line x1="470" y1="125" x2="515" y2="125" stroke="#3D7BD9" strokeWidth="3" />
+        <polygon points="515,119 527,125 515,131" fill="#3D7BD9" />
+        {/* Neck */}
+        <rect x="530" y="40" width="250" height="170" rx="10" fill="#3D7BD9" />
+        <text x="655" y="76" fontSize="19" fontWeight="bold" fill="#FFFFFF" textAnchor="middle">Neck 特征融合</text>
+        <rect x="550" y="92" width="210" height="30" rx="6" fill="rgba(255,255,255,0.2)" />
+        <text x="655" y="113" fontSize="15" fill="#FFFFFF" textAnchor="middle">FPN 自顶向下</text>
+        <rect x="550" y="130" width="210" height="30" rx="6" fill="rgba(255,255,255,0.2)" />
+        <text x="655" y="151" fontSize="15" fill="#FFFFFF" textAnchor="middle">PAN 自底向上</text>
+        <rect x="550" y="168" width="210" height="28" rx="6" fill="rgba(255,255,255,0.2)" />
+        <text x="655" y="188" fontSize="15" fill="#FFFFFF" textAnchor="middle">P3 / P4 / P5 三尺度</text>
+        <line x1="780" y1="125" x2="825" y2="125" stroke="#3D7BD9" strokeWidth="3" />
+        <polygon points="825,119 837,125 825,131" fill="#3D7BD9" />
+        {/* Head */}
+        <rect x="840" y="40" width="180" height="170" rx="10" fill="#0E3F8C" />
+        <text x="930" y="76" fontSize="19" fontWeight="bold" fill="#FFFFFF" textAnchor="middle">Head 检测头</text>
+        <rect x="858" y="92" width="144" height="30" rx="6" fill="rgba(255,255,255,0.16)" />
+        <text x="930" y="113" fontSize="15" fill="#FFFFFF" textAnchor="middle">分类分支</text>
+        <rect x="858" y="130" width="144" height="30" rx="6" fill="rgba(255,255,255,0.16)" />
+        <text x="930" y="151" fontSize="15" fill="#FFFFFF" textAnchor="middle">回归分支</text>
+        <rect x="858" y="168" width="144" height="28" rx="6" fill="rgba(255,255,255,0.16)" />
+        <text x="930" y="188" fontSize="15" fill="#FFFFFF" textAnchor="middle">Anchor-Free</text>
+        <line x1="1020" y1="125" x2="1062" y2="125" stroke="#D9534F" strokeWidth="3" />
+        <polygon points="1062,119 1074,125 1062,131" fill="#D9534F" />
+        {/* 输出 */}
+        <rect x="1078" y="70" width="56" height="110" rx="8" fill="#FFFFFF" stroke="#D9534F" strokeWidth="2" />
+        <text x="1106" y="108" fontSize="14" fontWeight="bold" fill="#D9534F" textAnchor="middle">框 +</text>
+        <text x="1106" y="130" fontSize="14" fontWeight="bold" fill="#D9534F" textAnchor="middle">置信度</text>
+      </svg>
+    </Box>
+    {/* 三张说明卡 */}
+    <Box style={{ flexDirection: 'row', gap: 20, marginTop: 18, width: 1200 }}>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 10, padding: 16, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>Backbone：提特征</Text>
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 6 }}>逐级下采样提取从边缘到结构的特征；SPPF 拓宽感受野，增强对不同大小胎头的适应性。</Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 10, padding: 16, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>Neck：融尺度</Text>
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 6 }}>FPN + PAN 双向融合深层语义与浅层细节，P3–P5 三个尺度分别负责小、中、大目标。</Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 10, padding: 16, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>Head：出预测</Text>
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 6 }}>解耦头将分类与框回归分开；Anchor-Free 直接回归边界框——单阶段一次前向完成检测。</Text>
+      </Box>
+    </Box>
+  </Box>
+  {/* 底部结论条 */}
+  <Box style={{ position: 'absolute', top: 606, left: 40, width: 1200, height: 44, background: '#E8EFF8', borderRadius: 8, justifyContent: 'center', paddingLeft: 24 }}>
+    <Text style={{ fontSize: 19, color: '#0E3F8C' }}><span style={{ fontWeight: 'bold' }}>同源演进：</span>YOLO11 以 C3k2 与 C2PSA 模块替代 YOLOv8 的 C2f，结构更精简、参数更少——这正是第 3 章对比实验的架构基础。</Text>
+  </Box>
+  {/* D 页脚 */}
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>HC18 胎儿头围检测项目 · 肖雄涛</Text>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>09 / 19</Text>
+  </Box>
+</Slide>

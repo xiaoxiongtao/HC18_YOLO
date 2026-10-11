@@ -1,0 +1,67 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* A3 页眉 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 72, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', paddingLeft: 40, paddingRight: 40, justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>超声胎儿头围检测 · 教学课件</Text>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>第 3 章 · 实验与结果分析</Text>
+  </Box>
+  {/* B 标题块 */}
+  <Box style={{ position: 'absolute', top: 96, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+    <Box style={{ width: 8, height: 34, background: '#1E4FA8', borderRadius: 2 }} />
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>检测性能对比：YOLOv8 vs YOLO11</Text>
+  </Box>
+  {/* C 内容区 */}
+  <Box style={{ position: 'absolute', top: 156, left: 40, width: 1200, flexDirection: 'column', gap: 18 }}>
+    {/* 顶部模型卡 */}
+    <Box style={{ flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 12, padding: 18, border: '1px solid #D6DCE5', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+        <Text style={{ fontSize: 64, fontWeight: 'bold', color: '#1E4FA8' }}>0.995</Text>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>YOLOv8n · mAP50</Text>
+          <Text style={{ fontSize: 18, color: '#4A5568', marginTop: 4 }}>mAP50-95 0.955 · 参数 3.14M · 6.49 MB · 1.88 ms</Text>
+        </Box>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 12, padding: 18, border: '1px solid #D6DCE5', flexDirection: 'row', alignItems: 'center', gap: 20 }}>
+        <Text style={{ fontSize: 64, fontWeight: 'bold', color: '#1E4FA8' }}>0.995</Text>
+        <Box style={{ flex: 1 }}>
+          <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#0E3F8C' }}>YOLO11n · mAP50</Text>
+          <Text style={{ fontSize: 18, color: '#4A5568', marginTop: 4 }}>mAP50-95 0.952 · 参数 2.60M · 5.49 MB · 2.38 ms</Text>
+        </Box>
+      </Box>
+    </Box>
+    {/* 指标表 */}
+    <Table
+      style={{ width: 1200, height: 280 }}
+      defaultTextStyle={{ fontSize: 19, textAlign: 'center', color: '#1A2230' }}
+      defaultCellStyle={{
+        border: {
+          left: { width: 1, color: '#D6DCE5' },
+          right: { width: 1, color: '#D6DCE5' },
+          top: { width: 1, color: '#D6DCE5' },
+          bottom: { width: 1, color: '#D6DCE5' },
+        },
+      }}
+      cells={[
+        [
+          { text: '指标', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          { text: 'YOLOv8n', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          { text: 'YOLO11n', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          { text: '解读', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+        ],
+        ['mAP50', '0.995', '0.995', '两模型检测精度持平'],
+        ['mAP50-95', { text: '0.955', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#E8EFF8' } } }, '0.952', '高 IoU 区间 v8 略占优'],
+        ['Precision / Recall', '0.990 / 1.000', '0.994 / 1.000', '验证集全部正确检出'],
+        ['参数量 / 权重体积', '3.14M / 6.49 MB', { text: '2.60M / 5.49 MB', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#E8EFF8' } } }, 'YOLO11 少约 17% 参数'],
+        ['推理时延', { text: '1.88 ms', textStyle: { bold: true, color: '#1E4FA8' }, cellStyle: { background: { color: '#E8EFF8' } } }, '2.38 ms', 'v8 推理更快'],
+      ]}
+    />
+    {/* 结论条 */}
+    <Box style={{ background: '#E8EFF8', borderRadius: 10, height: 56, justifyContent: 'center', paddingLeft: 24 }}>
+      <Text style={{ fontSize: 20, color: '#0E3F8C' }}><span style={{ fontWeight: 'bold' }}>结论：</span>YOLO11 以更少参数达到同等精度，更适合边缘设备部署；追求极致推理速度时可选 YOLOv8。数据来源：runs/comparison/comparison_metrics.csv。</Text>
+    </Box>
+  </Box>
+  {/* D 页脚 */}
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>HC18 胎儿头围检测项目 · 肖雄涛</Text>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>14 / 19</Text>
+  </Box>
+</Slide>

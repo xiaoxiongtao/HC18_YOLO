@@ -1,0 +1,15 @@
+<Slide style={{ width: 1280, height: 720, background: '#0E3F8C' }}>
+  {/* 装饰顶条 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 10, background: '#3D7BD9' }} />
+  {/* 中央文字 */}
+  <Box style={{ position: 'absolute', left: 0, top: 210, width: 1280, alignItems: 'center' }}>
+    <Text style={{ fontSize: 76, fontWeight: 'bold', color: '#FFFFFF', letterSpacing: 10 }}>谢 谢 聆 听</Text>
+    <Text style={{ fontSize: 24, color: '#FFFFFF', opacity: 0.7, marginTop: 18, letterSpacing: 4 }}>Q &amp; A · 欢迎讨论</Text>
+    <Box style={{ width: 110, height: 5, background: '#3D7BD9', borderRadius: 3, marginTop: 34 }} />
+    <Text style={{ fontSize: 19, color: '#FFFFFF', opacity: 0.85, lineHeight: 1.8, marginTop: 34, textAlign: 'center' }}>数据来源：HC18 挑战赛（ISBI 2018，Zenodo: records/1327317）{'\n'}框架：Ultralytics YOLOv8 / YOLO11 · 汇报人：肖雄涛 · 2026 年 10 月</Text>
+  </Box>
+  {/* 底部标记 */}
+  <Box style={{ position: 'absolute', top: 660, left: 0, width: 1280, alignItems: 'center' }}>
+    <Text style={{ fontSize: 14, color: '#FFFFFF', opacity: 0.4 }}>超声胎儿头围检测 · 教学课件 · 仅用于教学与科研</Text>
+  </Box>
+</Slide>

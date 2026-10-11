@@ -1,0 +1,56 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* A3 页眉 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 72, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', paddingLeft: 40, paddingRight: 40, justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>超声胎儿头围检测 · 教学课件</Text>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>第 2 章 · 方法与技术路线</Text>
+  </Box>
+  {/* B 标题块 */}
+  <Box style={{ position: 'absolute', top: 96, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+    <Box style={{ width: 8, height: 34, background: '#1E4FA8', borderRadius: 2 }} />
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>评价指标：从“检测得准”到“量得准”</Text>
+  </Box>
+  {/* C 内容区 2×2 */}
+  <Box style={{ position: 'absolute', top: 160, left: 40, width: 1200, flexDirection: 'column', gap: 18 }}>
+    <Box style={{ flexDirection: 'row', gap: 18 }}>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 12, padding: 22, border: '1px solid #D6DCE5', height: 186 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <Box style={{ background: '#1E4FA8', borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4 }}><Text style={{ fontSize: 15, color: '#FFFFFF', fontWeight: 'bold' }}>检测指标</Text></Box>
+          <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>mAP50 / mAP50-95</Text>
+        </Box>
+        <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.55, marginTop: 12 }}>IoU 阈值 0.5 及 0.5–0.95 区间平均的平均精度，衡量检测框定位与质量。{'\n'}<span style={{ color: '#0E3F8C', fontWeight: 'bold' }}>本项目：mAP50 = 0.995，mAP50-95 ≈ 0.95。</span></Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 12, padding: 22, border: '1px solid #D6DCE5', height: 186 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <Box style={{ background: '#0E3F8C', borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4 }}><Text style={{ fontSize: 15, color: '#FFFFFF', fontWeight: 'bold' }}>测量误差</Text></Box>
+          <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>MAD（平均绝对误差）</Text>
+        </Box>
+        <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.55, marginTop: 12 }}>预测头围与官方真值的平均绝对差，单位毫米，是临床最关心的指标。{'\n'}<span style={{ color: '#0E3F8C', fontWeight: 'bold' }}>本项目：YOLOv8 2.03 mm · YOLO11 2.39 mm。</span></Text>
+      </Box>
+    </Box>
+    <Box style={{ flexDirection: 'row', gap: 18 }}>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 12, padding: 22, border: '1px solid #D6DCE5', height: 186 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <Box style={{ background: '#0E3F8C', borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4 }}><Text style={{ fontSize: 15, color: '#FFFFFF', fontWeight: 'bold' }}>形状重叠</Text></Box>
+          <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>DSC（Dice 相似系数）</Text>
+        </Box>
+        <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.55, marginTop: 12 }}>预测椭圆与真实椭圆区域的重叠程度，反映胎头形状还原质量。{'\n'}<span style={{ color: '#0E3F8C', fontWeight: 'bold' }}>本项目：两模型均 ≈ 0.97。</span></Text>
+      </Box>
+      <Box style={{ flex: 1, background: '#F0F5FC', borderRadius: 12, padding: 22, border: '1px solid #D6DCE5', height: 186 }}>
+        <Box style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <Box style={{ background: '#0E3F8C', borderRadius: 6, paddingHorizontal: 10, paddingVertical: 4 }}><Text style={{ fontSize: 15, color: '#FFFFFF', fontWeight: 'bold' }}>相关性</Text></Box>
+          <Text style={{ fontSize: 25, fontWeight: 'bold', color: '#0E3F8C' }}>Pearson r</Text>
+        </Box>
+        <Text style={{ fontSize: 19, color: '#4A5568', lineHeight: 1.55, marginTop: 12 }}>预测头围与真值头围的线性相关系数，检查是否存在系统性偏差。{'\n'}<span style={{ color: '#0E3F8C', fontWeight: 'bold' }}>本项目：r ≈ 0.999，接近完全线性。</span></Text>
+      </Box>
+    </Box>
+  </Box>
+  {/* 底部提示条 */}
+  <Box style={{ position: 'absolute', top: 576, left: 40, width: 1200, height: 60, background: '#E8EFF8', borderRadius: 10, justifyContent: 'center', paddingLeft: 24 }}>
+    <Text style={{ fontSize: 20, color: '#0E3F8C' }}><span style={{ fontWeight: 'bold' }}>教学要点：</span>检测指标好 ≠ 测量误差小。评价医学测量任务，必须同时看“框得准不准”和“量得准不准”两类指标。</Text>
+  </Box>
+  {/* D 页脚 */}
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>HC18 胎儿头围检测项目 · 肖雄涛</Text>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>11 / 19</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,58 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* A3 页眉 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 72, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', paddingLeft: 40, paddingRight: 40, justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>超声胎儿头围检测 · 教学课件</Text>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>第 4 章 · 总结与展望</Text>
+  </Box>
+  {/* B 标题块 */}
+  <Box style={{ position: 'absolute', top: 96, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+    <Box style={{ width: 8, height: 34, background: '#1E4FA8', borderRadius: 2 }} />
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>结论与展望</Text>
+  </Box>
+  {/* C 内容区 */}
+  <Box style={{ position: 'absolute', top: 156, left: 40, width: 1200, flexDirection: 'row', gap: 24 }}>
+    {/* 左：结论 */}
+    <Box style={{ flex: 1.15, background: '#0E3F8C', borderRadius: 12, padding: 26, flexDirection: 'column', gap: 18 }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#FFFFFF' }}>三条结论</Text>
+      <Box style={{ gap: 16 }}>
+        <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+          <Box style={{ width: 34, height: 34, borderRadius: 17, background: 'rgba(255,255,255,0.18)', justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold' }}>1</Text></Box>
+          <Text style={{ flex: 1, fontSize: 19, color: '#FFFFFF', opacity: 0.95, lineHeight: 1.55 }}>“掩膜 → 椭圆 → YOLO 框”的标注转换流程端到端可行，单类检测 mAP50 达到 0.995。</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+          <Box style={{ width: 34, height: 34, borderRadius: 17, background: 'rgba(255,255,255,0.18)', justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold' }}>2</Text></Box>
+          <Text style={{ flex: 1, fontSize: 19, color: '#FFFFFF', opacity: 0.95, lineHeight: 1.55 }}>两代模型检测精度几乎持平（mAP50-95：0.955 vs 0.952）；头围误差 YOLOv8 略小（MAD 2.03 vs 2.39 mm），DSC 均 ≈ 0.97。</Text>
+        </Box>
+        <Box style={{ flexDirection: 'row', gap: 14, alignItems: 'flex-start' }}>
+          <Box style={{ width: 34, height: 34, borderRadius: 17, background: 'rgba(255,255,255,0.18)', justifyContent: 'center', alignItems: 'center' }}><Text style={{ fontSize: 17, color: '#FFFFFF', fontWeight: 'bold' }}>3</Text></Box>
+          <Text style={{ flex: 1, fontSize: 19, color: '#FFFFFF', opacity: 0.95, lineHeight: 1.55 }}>YOLO11 参数少约 17%、权重小 1 MB，同等精度下更适合资源受限的部署场景。</Text>
+        </Box>
+      </Box>
+    </Box>
+    {/* 右：展望 */}
+    <Box style={{ flex: 1, flexDirection: 'column', gap: 16 }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#0E3F8C' }}>三个改进方向</Text>
+      <Box style={{ background: '#F0F5FC', borderRadius: 10, padding: 18, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>① 直接回归椭圆参数</Text>
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 4 }}>让模型直接预测中心 / 半轴 / 角度，省去“框 → 椭圆拟合”环节，减少误差传递。</Text>
+      </Box>
+      <Box style={{ background: '#F0F5FC', borderRadius: 10, padding: 18, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>② 检测 + 分割联合</Text>
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 4 }}>引入分割分支联合优化颅骨轮廓，有望压缩 mAP50-95 与 MAD 的剩余差距。</Text>
+      </Box>
+      <Box style={{ background: '#F0F5FC', borderRadius: 10, padding: 18, border: '1px solid #D6DCE5' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#0E3F8C' }}>③ 临床化评估</Text>
+        <Text style={{ fontSize: 18, color: '#4A5568', lineHeight: 1.55, marginTop: 4 }}>按孕周分组评估误差（如 Bland–Altman、95% 一致性界限），向临床可用性靠拢。</Text>
+      </Box>
+    </Box>
+  </Box>
+  {/* 底部金句条 */}
+  <Box style={{ position: 'absolute', top: 592, left: 40, width: 1200, height: 54, background: '#E8EFF8', borderRadius: 10, justifyContent: 'center', paddingLeft: 24 }}>
+    <Text style={{ fontSize: 20, color: '#0E3F8C' }}><span style={{ fontWeight: 'bold' }}>一句话总结：</span>头围自动估计 = 目标检测 + 几何换算，检测与测量两条指标链都要盯住。</Text>
+  </Box>
+  {/* D 页脚 */}
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>HC18 胎儿头围检测项目 · 肖雄涛</Text>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>18 / 19</Text>
+  </Box>
+</Slide>

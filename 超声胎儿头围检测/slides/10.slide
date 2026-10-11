@@ -1,0 +1,64 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* A3 页眉 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 72, background: '#0E3F8C', flexDirection: 'row', alignItems: 'center', paddingLeft: 40, paddingRight: 40, justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>超声胎儿头围检测 · 教学课件</Text>
+    <Text style={{ fontSize: 16, color: '#FFFFFF', opacity: 0.85 }}>第 2 章 · 方法与技术路线</Text>
+  </Box>
+  {/* B 标题块 */}
+  <Box style={{ position: 'absolute', top: 96, left: 40, width: 1200, flexDirection: 'row', alignItems: 'center', gap: 14 }}>
+    <Box style={{ width: 8, height: 34, background: '#1E4FA8', borderRadius: 2 }} />
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#0E3F8C' }}>训练配置：同一套超参数的公平对比</Text>
+  </Box>
+  {/* C 内容区 */}
+  <Box style={{ position: 'absolute', top: 156, left: 40, width: 1200, flexDirection: 'row', gap: 24 }}>
+    {/* 左深蓝原则栏 */}
+    <Box style={{ width: 360, background: '#0E3F8C', borderRadius: 12, padding: 26, flexDirection: 'column' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#FFFFFF' }}>公平对比原则</Text>
+      <Box style={{ width: 60, height: 5, background: '#3D7BD9', borderRadius: 3, marginTop: 14 }} />
+      <Text style={{ fontSize: 19, color: '#FFFFFF', opacity: 0.9, lineHeight: 1.7, marginTop: 18 }}>两个模型使用完全相同的数据划分与超参数，仅主干网络不同。这样性能差异才能归因于架构本身，而非训练技巧。</Text>
+      <Box style={{ marginTop: 30, gap: 14 }}>
+        <Box style={{ background: 'rgba(255,255,255,0.12)', borderRadius: 8, padding: 14 }}>
+          <Text style={{ fontSize: 18, color: '#FFFFFF' }}><span style={{ fontWeight: 'bold' }}>YOLOv8n：</span>早停于 68 轮，{'\n'}训练用时约 32.8 分钟</Text>
+        </Box>
+        <Box style={{ background: 'rgba(255,255,255,0.12)', borderRadius: 8, padding: 14 }}>
+          <Text style={{ fontSize: 18, color: '#FFFFFF' }}><span style={{ fontWeight: 'bold' }}>YOLO11n：</span>早停于 60 轮，{'\n'}训练用时约 30.4 分钟</Text>
+        </Box>
+      </Box>
+    </Box>
+    {/* 右参数表 */}
+    <Box style={{ flex: 1, flexDirection: 'column' }}>
+      <Table
+        style={{ width: '100%', height: 384 }}
+        defaultTextStyle={{ fontSize: 19, textAlign: 'center', color: '#1A2230' }}
+        defaultCellStyle={{
+          border: {
+            left: { width: 1, color: '#D6DCE5' },
+            right: { width: 1, color: '#D6DCE5' },
+            top: { width: 1, color: '#D6DCE5' },
+            bottom: { width: 1, color: '#D6DCE5' },
+          },
+        }}
+        cells={[
+          [
+            { text: '超参数', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: '取值', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+            { text: '说明', textStyle: { bold: true, color: '#FFFFFF' }, cellStyle: { background: { color: '#1E4FA8' } } },
+          ],
+          ['epochs / patience', '100 / 20', '最多 100 轮，20 轮无提升则早停'],
+          ['imgsz / batch', '640 / 16', '标准输入尺寸与批大小'],
+          ['lr0 / momentum', '0.01 / 0.937', '初始学习率与动量'],
+          ['weight_decay', '0.0005', '权重衰减正则'],
+          ['数据增强', 'Mosaic + HSV + 翻转', 'scale 0.5 · fliplr 0.5 · hsv 增强'],
+          ['seed', '42', '固定随机种子，结果可复现'],
+          ['数据划分', '793 / 206（按病人 8:2）', '避免同一病人跨集泄漏'],
+        ]}
+      />
+      <Text style={{ fontSize: 15, color: '#8B97A8', marginTop: 10 }}>摘自 runs/detect/*/args.yaml，两个模型配置完全一致</Text>
+    </Box>
+  </Box>
+  {/* D 页脚 */}
+  <Box style={{ position: 'absolute', top: 668, left: 40, width: 1200, flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={{ fontSize: 14, color: '#8B97A8' }}>HC18 胎儿头围检测项目 · 肖雄涛</Text>
+    <Text style={{ fontSize: 15, color: '#1E4FA8', fontWeight: 'bold' }}>10 / 19</Text>
+  </Box>
+</Slide>

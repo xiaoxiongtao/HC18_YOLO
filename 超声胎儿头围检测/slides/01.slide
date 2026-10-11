@@ -1,0 +1,31 @@
+<Slide style={{ width: 1280, height: 720, background: '#FFFFFF' }}>
+  {/* 右侧超声图像带 */}
+  <Image src="assets/sample_image.png" style={{ position: 'absolute', right: 0, top: 0, width: 440, height: 720, objectFit: 'cover' }} />
+  <Box style={{ position: 'absolute', right: 0, top: 0, width: 440, height: 720, background: 'rgba(14,63,140,0.30)' }} />
+  <Box style={{ position: 'absolute', right: 0, top: 620, width: 440, height: 100, background: 'rgba(14,63,140,0.72)', justifyContent: 'center', paddingLeft: 24 }}>
+    <Text style={{ fontSize: 15, color: '#FFFFFF', opacity: 0.92 }}>HC18 标准平面产前超声图像（800×540 灰度）</Text>
+  </Box>
+  {/* 顶部深蓝条 */}
+  <Box style={{ position: 'absolute', top: 0, left: 0, width: 1280, height: 14, background: '#0E3F8C', zIndex: 3 }} />
+  {/* 左侧文字区 */}
+  <Box style={{ position: 'absolute', left: 64, top: 130, width: 680, zIndex: 2 }}>
+    <Text style={{ fontSize: 20, color: '#3D7BD9', letterSpacing: 6 }}>医学影像人工智能 · 教学课件</Text>
+    <Text style={{ fontSize: 74, fontWeight: 'bold', color: '#0E3F8C', lineHeight: 1.2, marginTop: 20 }}>超声胎儿头围检测</Text>
+    <Text style={{ fontSize: 21, color: '#4A5568', marginTop: 14, fontStyle: 'italic' }}>Automated Measurement of Fetal Head Circumference</Text>
+    <Box style={{ width: 110, height: 6, background: '#1E4FA8', borderRadius: 3, marginTop: 26 }} />
+    <Text style={{ fontSize: 27, color: '#1A2230', marginTop: 26, fontWeight: 600 }}>基于 YOLOv8 与 YOLO11 的目标检测实践</Text>
+    <Text style={{ fontSize: 19, color: '#4A5568', marginTop: 12, lineHeight: 1.6 }}>从 HC18 挑战赛数据到头围自动估计的全流程：{'\n'}数据 · 标注转换 · 网络架构 · 训练 · 评估</Text>
+  </Box>
+  {/* 底部信息条 */}
+  <Box style={{ position: 'absolute', left: 64, top: 596, width: 680, flexDirection: 'row', gap: 14, alignItems: 'center', zIndex: 2 }}>
+    <Box style={{ background: '#E8EFF8', borderRadius: 20, paddingHorizontal: 20, paddingVertical: 10 }}>
+      <Text style={{ fontSize: 17, color: '#0E3F8C', fontWeight: 600 }}>汇报人：肖雄涛</Text>
+    </Box>
+    <Box style={{ background: '#E8EFF8', borderRadius: 20, paddingHorizontal: 20, paddingVertical: 10 }}>
+      <Text style={{ fontSize: 17, color: '#0E3F8C', fontWeight: 600 }}>2026 年 10 月</Text>
+    </Box>
+    <Box style={{ background: '#E8EFF8', borderRadius: 20, paddingHorizontal: 20, paddingVertical: 10 }}>
+      <Text style={{ fontSize: 17, color: '#0E3F8C', fontWeight: 600 }}>数据：HC18 · ISBI 2018</Text>
+    </Box>
+  </Box>
+</Slide>
